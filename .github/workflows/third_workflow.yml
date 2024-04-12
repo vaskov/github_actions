@@ -6,7 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: List Files
-        run: l1s -a
+        run: ls -a
     #   - uses: actions/checkout@v4.1.1 # копирование файлов с помощью экшена из маркетплейса
       - name: Copy Files # ручное копирование
         run: |
