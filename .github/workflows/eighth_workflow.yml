@@ -1,0 +1,18 @@
+name: Eight Workflow
+# on: [push, issues, pull_request] # триггер при пуше, создании проблемы и предложении изменений
+on:
+  workflow_dispatch:
+    inputs:
+      titleCustom:
+        description: Type the Title
+        type: string
+        required: true
+        default: "Hello World"
+jobs:
+  run-first-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Event Vars
+        run: |
+          echo $GITHUB_SHA
+          echo $GITHUB_REF
