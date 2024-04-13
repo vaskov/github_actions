@@ -3,7 +3,7 @@ name: Eight Workflow
 on:
   workflow_dispatch:
     inputs:
-      titleCustom:
+      titleCustom1:
         description: Type the Title
         type: string
         required: true
@@ -14,5 +14,4 @@ jobs:
     steps:
       - name: Event Vars
         run: |
-          echo $GITHUB_SHA
-          echo $GITHUB_REF
+          echo "Title: ${{ inputs.titleCustom1 }}"
