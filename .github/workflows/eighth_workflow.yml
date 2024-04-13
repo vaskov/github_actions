@@ -30,5 +30,5 @@ jobs:
       - name: Event Vars
         run: |
           echo "Title: ${{ inputs.titleCustom1 }}"
-          echo "Title: ${{ inputs.selectCustom1 }}"
-          echo "Title: ${{ inputs.checkCustom1 }}"
+          echo "Select: ${{ inputs.selectCustom1 }}"
+          echo "Check: ${{ inputs.checkCustom1 }}"
