@@ -1,8 +1,8 @@
 name: Fifth Workflow
-# on: [push, issues, pull_request]
+# on: [push, issues, pull_request] # триггер при пуше, создании проблемы и предложении изменений
 on:
   issues:
-    types: [edited, deleted]
+    types: [edited, deleted] # триггер при редактировании и удалении issue
   pull_request:
     types: [assigned, closed]
 
