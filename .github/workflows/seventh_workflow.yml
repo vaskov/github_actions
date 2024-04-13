@@ -2,7 +2,7 @@ name: Seventh Workflow
 # on: [push, issues, pull_request] # триггер при пуше, создании проблемы и предложении изменений
 on:
   schedule:
-    - cron: "*/1 * * * *"
+    - cron: "*/5 * * * *"
 jobs:
   run-first-command:
     runs-on: ubuntu-latest
