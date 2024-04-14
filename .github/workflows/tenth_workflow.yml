@@ -1,0 +1,15 @@
+name: Tenth Workflow
+# on: [push, issues, pull_request] # триггер при пуше, создании проблемы и предложении изменений
+on: [push]
+
+jobs:
+  run-first-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Contexts and Expressions
+        id: context-expression
+        run: |
+          echo ${{ toJson(github) }}
+          echo ${{ toJson(runner) }}
+          echo ${{ toJson(job) }}
+          echo ${{ toJson(steps) }}
