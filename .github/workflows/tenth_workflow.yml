@@ -1,6 +1,7 @@
 name: Tenth Workflow
 # on: [push, issues, pull_request] # триггер при пуше, создании проблемы и предложении изменений
 on: [push]
+run-name: "Display Context Info"
 
 jobs:
   run-first-command:
@@ -13,3 +14,5 @@ jobs:
           echo "${{ toJson(runner) }}"
           echo "${{ toJson(job) }}"
           echo "${{ toJson(steps) }}"
+      - name: Show Steps Context
+        run: echo "${{ toJson(steps) }}"
