@@ -3,10 +3,19 @@ on: push
 
 jobs:
   testing-matrix-job:
+    continue-on-error: true # если какой-то джоб вернет неудачу, то в целом джоб вернет успех. Иначе без этого параметра в целом джоб вернет неудачу
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]
         node-version: [12, 14, 18]
+        include:
+          - os: macos-latest
+            node-version: 17
+        exclude:
+          - os: ubuntu-latest
+            node-version: 14
+      fail-fast: false # будет запускат следующий workflow, даже если он вернул ошибку
+      max-parallel: 2 # одновременная работа джобов
     runs-on: ${{ matrix.os }}
     steps:
       - run: node -v
