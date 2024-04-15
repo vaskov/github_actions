@@ -4,7 +4,8 @@ on: [push]
 jobs:
   run-first-command:
     runs-on: ubuntu-latest
-    environment: "staging"
+    environment: "staging" # Выводит Environment variables, которые задаются в Repo > Settings > Secrets and Variables > Actions > Вкладка Variables > Environment variables
+                           # Без этой строки поиск будет выполняться в Repository variables, которые задаются в Repo > Settings > Secrets and Variables > Actions > Вкладка Variables > Repository variables
     steps:
       - name: Our Vars & Secrets
         run: |
