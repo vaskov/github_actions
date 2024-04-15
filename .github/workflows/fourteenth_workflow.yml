@@ -1,4 +1,4 @@
-name: Fourteenth_workflow
+name: Fourteenth Workflow
 on: workflow_dispatch
 
 jobs:
@@ -11,7 +11,10 @@ jobs:
         uses: actions/cache@v4.0.2
         with:
           path: ~/.npm
-          key: "cache-file"
+          key: ${{ runner.os }}-cache-file-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-cache-file-
+            ${{ runner.os }}-
       - name: Display Cache
         run: echo '${{ toJson(steps.cache-step.outputs) }}'
       - name: Install node_modules
