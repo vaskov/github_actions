@@ -10,9 +10,11 @@ jobs:
         node-version: [12, 14, 18]
         include:
           - os: macos-latest
-            node-version: 17
-        exclude:
+            node-version: 17 # добавить проверку версии node в macos
           - os: ubuntu-latest
+            status: active # для ubuntu (12 и 18) добавляем доп. параметр
+        exclude:
+          - os: ubuntu-latest # исключить проверку версии node в ubuntu
             node-version: 14
       fail-fast: false # будет запускат следующий workflow, даже если он вернул ошибку
       max-parallel: 2 # одновременная работа джобов
