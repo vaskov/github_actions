@@ -4,6 +4,9 @@ on: push
 jobs:
   test-docker-container:
     runs-on: ubuntu-latest
+    services: # подключаем образ как сервис
+      customMysql:
+        image: mysql
     container:
         image: node
         env:
@@ -11,6 +14,8 @@ jobs:
         ports:
           - 80
     steps: # шаги выполняются уже в контенере Docker
+      - name: Display service image
+        run: echo '${{ toJson(job.services) }}'
       - name: Display Node Version
         run: node -v
       - name: Print new Node Version
