@@ -1,0 +1,19 @@
+name: Docker Test
+on: push
+
+jobs:
+  test-docker-container:
+    runs-on: ubuntu-latest
+    container:
+        image: node
+        env:
+          NODE_ENV: development
+        ports:
+          - 80
+    steps: # шаги выполняются уже в контенере Docker
+      - name: Display Node Version
+        run: node -v
+      - name: Print new Node Version
+        uses: docker://node:lts-alpine3.19
+        with:
+          args: -v
