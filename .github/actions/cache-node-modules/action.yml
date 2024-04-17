@@ -5,6 +5,10 @@ inputs:
     required: false # передача переменной не обязательна
     description: "enable or disable caching"
     default: 'true'
+# outputs:
+#   ststus:
+#     value: 'Active'
+#     description: "Some Status"
 runs:
   using: composite
   steps:
