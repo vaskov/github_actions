@@ -4,7 +4,8 @@ on: push
 jobs:
   test-timeout:
     runs-on: ubuntu-latest
-    timeout-minutes: 1
+    timeout-minutes: 1 # Таймаут на уровне джоба
     steps:
       - name: Some Step
         run: sleep 200
+        timeout-minutes: 1 # Таймаут на уровне шага

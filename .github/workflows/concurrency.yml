@@ -1,0 +1,13 @@
+name: Test Timeout
+on: workflow_dispatch
+concurrency:
+    group: concyrrency-testing # если с таким же id будет обнаружен еще один запущенный WF, то запускается последний запузенный, а все остальные отменяются
+    cancel-in-progress: true # отменяет все запущенные WF, кроме последнего запущенного
+
+jobs:
+  test-timeout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1 # Таймаут на уровне джоба
+    steps:
+      - name: Some Step
+        run: sleep 50
